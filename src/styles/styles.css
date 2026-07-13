@@ -1,0 +1,216 @@
+@font-face {
+    font-family: 'PPFrama-Black';
+    src: url('../../src/assets/fonts/PPFrama-Black.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PPFrama';
+    src: url('../../src/assets/fonts/PPFrama-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PPEditorialOld';
+    src: url('../../src/assets/fonts/PPEditorialOld-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #002eff; 
+    color: #ffffff;
+    font-family: 'PPEditorialOld', serif;
+    height: 100vh;
+    overflow: hidden; 
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 450px 1fr;
+    height: 100vh;
+    padding: 60px;
+}
+
+/* vertical layout: 'transform-origin: left bottom' pins the text's bottom-left corner as the pivot point. rotating -90deg flips the text vertically, but this rotation also rotates the element's local coordinate system so the local y axis points horizontally to the left. applying translateY(100%) pushes the entire text block exactly one full width to the right, aligning its baseline back inside the viewport */
+.sidebar {
+    position: relative;
+    height: 100%;
+}
+
+.vertical-text-group {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+    
+    /* para mudar distancia de eduardo / portfolio / hora */
+    line-height: 0.7;
+    gap: 1.5rem; 
+    
+    transform: rotate(-90deg) translateY(100%);
+    transform-origin: left bottom;
+}
+
+.text-serif {
+    font-family: 'PPEditorialOld', serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 8.5rem;
+    letter-spacing: -2px;
+}
+
+.name-first, .name-last {
+    font-style: normal;
+}
+
+.portfolio-title {
+    font-family: 'PPFrama-Black', sans-serif;
+    font-weight: 900;
+    font-size: 9rem;
+    letter-spacing: -4px;
+}
+
+/* alinha oHora na direta do bloco */
+.name-last {
+    align-self: flex-end;
+    margin-bottom: 30px; 
+}
+
+.main-content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 760px;
+    height: 100%;
+    gap: 40px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'PPEditorialOld', serif;
+    font-size: 2.4rem;
+    font-weight: 400;
+    transition: opacity 0.2s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+}
+
+.sobre-mim-link {
+    opacity: 0.55;
+    pointer-events: none;
+    cursor: default;
+}
+
+.sobre-mim-link:hover {
+    opacity: 0.55;
+}
+
+.arrow {
+    font-size: 2.5rem;
+    display: inline-block;
+    margin-left: 4px;
+    font-family: 'PPFrama', sans-serif;
+}
+
+.bio-section {
+    width: 100%;
+    padding-right: 20px;
+    margin-top: 8px;
+    margin-left: -16px;
+}
+
+.greeting {
+    font-family: 'PPFrama-Black', sans-serif;
+    font-weight: 900;
+    font-size: 2.8rem;
+    margin-bottom: 1px;    
+    letter-spacing: -1px;
+}
+
+.bio-text {
+    font-family: 'PPFrama', sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 0;       
+    text-align: justify;
+    padding-left: 3rem;  
+    text-indent: -3rem;     
+}
+.bio-text:last-child {
+    margin-bottom: 0;
+}
+
+.footer {
+    text-align: right;
+    width: 100%;
+    margin-top: auto;
+}
+
+.year-bracket {
+    font-family: 'PPEditorialOld', sans-serif;
+    font-size: 2.6rem;
+    letter-spacing: -1px;
+    font-weight: 900;
+}
+
+@media (max-height: 850px) {
+    .text-serif {
+        font-size: 7rem; 
+    }
+    .portfolio-title {
+        font-size: 7.5rem;
+    }
+    .vertical-text-group {
+        gap: 1rem;
+    }
+    .name-last {
+        margin-bottom: 15px; 
+    }
+}
+
+@media (max-height: 720px) {
+    .text-serif {
+        font-size: 5.8rem;
+    }
+    .portfolio-title {
+        font-size: 6.2rem;
+    }
+    .vertical-text-group {
+        gap: 0.6rem;
+    }
+    .name-last {
+        margin-bottom: 10px;
+    }
+    .container {
+        padding: 40px;
+    }
+}
