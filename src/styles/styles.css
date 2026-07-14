@@ -19,6 +19,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'PPEditorialOld-Black';
+    src: url('../../src/assets/fonts/PPEditorialOld-Ultrabold.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -33,6 +40,11 @@ body {
     overflow: hidden; 
 }
 
+body.projects-page {
+    background-color: #ffffff;
+    color: #002eff;
+}
+
 .container {
     display: grid;
     grid-template-columns: 450px 1fr;
@@ -40,51 +52,19 @@ body {
     padding: 60px;
 }
 
-/* vertical layout: 'transform-origin: left bottom' pins the text's bottom-left corner as the pivot point. rotating -90deg flips the text vertically, but this rotation also rotates the element's local coordinate system so the local y axis points horizontally to the left. applying translateY(100%) pushes the entire text block exactly one full width to the right, aligning its baseline back inside the viewport */
 .sidebar {
     position: relative;
     height: 100%;
 }
 
-.vertical-text-group {
+.vertical-logo {
     position: absolute;
     bottom: 0;
     left: 0;
-    display: flex;
-    flex-direction: column;
-    white-space: nowrap;
-    
-    /* para mudar distancia de eduardo / portfolio / hora */
-    line-height: 0.7;
-    gap: 1.5rem; 
-    
-    transform: rotate(-90deg) translateY(100%);
-    transform-origin: left bottom;
-}
-
-.text-serif {
-    font-family: 'PPEditorialOld', serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 8.5rem;
-    letter-spacing: -2px;
-}
-
-.name-first, .name-last {
-    font-style: normal;
-}
-
-.portfolio-title {
-    font-family: 'PPFrama-Black', sans-serif;
-    font-weight: 900;
-    font-size: 9rem;
-    letter-spacing: -4px;
-}
-
-/* alinha oHora na direta do bloco */
-.name-last {
-    align-self: flex-end;
-    margin-bottom: 30px; 
+    height: 100%;       
+    max-height: 100%;   
+    width: auto;        
+    display: block;
 }
 
 .main-content {
@@ -117,6 +97,10 @@ body {
     font-size: 2.4rem;
     font-weight: 400;
     transition: opacity 0.2s ease;
+}
+
+.projects-page .nav-link {
+    color: #002eff;
 }
 
 .nav-link:hover {
@@ -160,11 +144,12 @@ body {
     font-weight: 400;
     font-size: 1.1rem;
     line-height: 1.5;
-    margin-bottom: 0;       
+    margin-bottom: 0; 
     text-align: justify;
     padding-left: 3rem;  
-    text-indent: -3rem;     
+    text-indent: -3rem;  
 }
+
 .bio-text:last-child {
     margin-bottom: 0;
 }
@@ -182,35 +167,225 @@ body {
     font-weight: 900;
 }
 
-@media (max-height: 850px) {
-    .text-serif {
-        font-size: 7rem; 
-    }
-    .portfolio-title {
-        font-size: 7.5rem;
-    }
-    .vertical-text-group {
-        gap: 1rem;
-    }
-    .name-last {
-        margin-bottom: 15px; 
-    }
+/* pag de projetos */
+
+.active-link {
+    opacity: 0.55;
+    pointer-events: none;
+    cursor: default;
 }
 
-@media (max-height: 720px) {
-    .text-serif {
-        font-size: 5.8rem;
+.projects-sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+.categories-list {
+    width: 100%;
+    margin-top: 10px; 
+}
+
+.category-item {
+    border-bottom: 2px solid #002eff;
+    padding-top: 0;
+    padding-bottom: 0; 
+    margin-bottom: 35px; 
+}
+
+.category-item:first-child {
+    border-top: none; 
+    padding-top: 0; 
+}
+
+.category-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #002eff;
+    text-decoration: none;
+    font-family: 'PPEditorialOld-Black', serif;
+    font-weight: 800;
+    font-size: 2.4rem; 
+    letter-spacing: -0.5px;
+    transition: opacity 0.2s ease;
+    padding-bottom: 60px; 
+}
+
+.category-link:hover {
+    opacity: 0.7;
+}
+
+.category-link .arrow-down {
+    font-size: 2.2rem; 
+    font-family: 'PPFrama', sans-serif;
+}
+
+.projects-section {
+    display: flex;
+    flex-direction: column;
+    gap: 35px; 
+}
+
+.skills-block {
+    text-align: left;
+}
+
+.skills-title {
+    font-family: 'PPFrama-Black', sans-serif;
+    font-weight: 900;
+    font-size: 2.8rem;
+    letter-spacing: -1px;
+    margin-bottom: 15px;
+}
+
+.skills-list {
+    list-style: none; 
+    font-family: 'PPFrama', sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem; 
+    line-height: 1.5;
+}
+
+.skills-list > li {
+    margin-bottom: 8px;
+}
+
+.skills-sublist {
+    list-style: none;
+    padding-left: 20px; 
+    margin-top: 4px;
+}
+
+.skills-sublist li {
+    font-size: 1.1rem; 
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+/* responsividade geral */
+
+@media (max-width: 768px) {
+
+    body {
+        overflow: auto;
+        height: auto;
+        min-height: 100vh;
     }
-    .portfolio-title {
-        font-size: 6.2rem;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        padding: 40px 24px;
+        gap: 30px;
     }
-    .vertical-text-group {
-        gap: 0.6rem;
+
+    .sidebar {
+        order: 1; 
+        height: 220px; 
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: visible; 
     }
-    .name-last {
+
+    .vertical-logo {
+        position: absolute;
+        transform: rotate(90deg) scale(1.4); 
+        transform-origin: center center;
+        
+        height: 550px; 
+        width: auto;
+        
+        max-width: none;
+        bottom: auto;
+        left: auto;
+    }
+
+    .main-content {
+        order: 2; 
+        height: auto;
+        justify-content: flex-start;
+        margin-top: 20px;
+    }
+
+    .content-wrapper {
+        height: auto;
+        gap: 30px;
+    }
+    .nav-link {
+        font-size: 1.5rem;
+    }
+
+    .arrow {
+        font-size: 1.5rem;
+    }
+
+    .bio-section {
+        margin-left: 0;
+        padding-right: 0;
+    }
+
+    .greeting {
+        font-size: 2.2rem;
         margin-bottom: 10px;
     }
-    .container {
-        padding: 40px;
+
+    .bio-text {
+        font-size: 1rem;
+        line-height: 1.6;
+        text-align: left;
+        padding-left: 0;  
+        text-indent: 0;   
+        margin-bottom: 15px;
+    }
+
+    .projects-sidebar {
+        height: auto;
+    }
+
+    .categories-list {
+        margin-top: 10px;
+    }
+
+    .category-item {
+        margin-bottom: 15px;
+    }
+
+    .category-link {
+        font-size: 1.8rem;
+        padding-bottom: 15px;
+    }
+
+    .category-link .arrow-down {
+        font-size: 1.6rem;
+    }
+
+    .projects-section {
+        gap: 30px;
+    }
+
+    .skills-title {
+        font-size: 2.2rem;
+        margin-bottom: 12px;
+    }
+
+    .skills-list, 
+    .skills-sublist li {
+        font-size: 1rem;
+    }
+
+    .footer {
+        order: 3;
+        text-align: left;
+        margin-top: 20px;
+    }
+
+    .year-bracket {
+        font-size: 2rem;
     }
 }
