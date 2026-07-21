@@ -1,391 +1,417 @@
 @font-face {
-    font-family: 'PPFrama-Black';
-    src: url('../../src/assets/fonts/PPFrama-Black.otf') format('opentype');
-    font-weight: 900;
-    font-style: normal;
+  font-family: "PPFrama-Black";
+  src: url("../../src/assets/fonts/PPFrama-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'PPFrama';
-    src: url('../../src/assets/fonts/PPFrama-Regular.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
+  font-family: "PPFrama";
+  src: url("../../src/assets/fonts/PPFrama-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'PPEditorialOld';
-    src: url('../../src/assets/fonts/PPEditorialOld-Regular.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
+  font-family: "PPEditorialOld";
+  src: url("../../src/assets/fonts/PPEditorialOld-Regular.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'PPEditorialOld-Black';
-    src: url('../../src/assets/fonts/PPEditorialOld-Ultrabold.otf') format('opentype');
-    font-weight: 800;
-    font-style: normal;
+  font-family: "PPEditorialOld-Black";
+  src: url("../../src/assets/fonts/PPEditorialOld-Ultrabold.otf")
+    format("opentype");
+  font-weight: 800;
+  font-style: normal;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: #002eff;
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background-color: #002eff;
+  color: #ffffff;
 }
 
 body {
-    background-color: #002eff; 
-    color: #ffffff;
-    font-family: 'PPEditorialOld', serif;
-    height: 100vh;
-    overflow: hidden; 
+  background-color: #002eff;
+  color: #ffffff;
+  font-family: "PPEditorialOld", serif;
+  height: 100vh;
+  overflow: hidden;
 }
 
 body.projects-page {
-    background-color: #ffffff;
-    color: #002eff;
+  background-color: #ffffff;
+  color: #002eff;
+  height: auto;
+  min-height: 100vh;
+  overflow-y: auto;
 }
 
 .container {
-    display: grid;
-    grid-template-columns: 450px 1fr;
-    height: 100vh;
-    padding: 60px;
-}
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
 
+  column-gap: 50px;
+
+  height: auto;
+  min-height: 100vh;
+  padding: 60px;
+}
 .sidebar {
-    position: relative;
-    height: 100%;
+  position: relative;
+  height: 100%;
 }
 
 .vertical-logo {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 100%;       
-    max-height: 100%;   
-    width: auto;        
-    display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  max-height: 100%;
+  width: auto;
+  display: block;
 }
 
 .main-content {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: auto;
+  width: 100%;
 }
 
 .content-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 100%;
-    max-width: 760px;
-    height: 100%;
-    gap: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 100%;
+  gap: 40px;
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .nav-link {
-    color: #ffffff;
-    text-decoration: none;
-    font-family: 'PPEditorialOld', serif;
-    font-size: 2.4rem;
-    font-weight: 400;
-    transition: opacity 0.2s ease;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "PPEditorialOld", serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  transition: opacity 0.2s ease;
 }
 
 .projects-page .nav-link {
-    color: #002eff;
+  color: #002eff;
 }
 
 .nav-link:hover {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 .sobre-mim-link {
-    opacity: 0.55;
-    pointer-events: none;
-    cursor: default;
+  opacity: 0.55;
+  pointer-events: none;
+  cursor: default;
 }
 
 .sobre-mim-link:hover {
-    opacity: 0.55;
+  opacity: 0.55;
 }
 
 .arrow {
-    font-size: 2.5rem;
-    display: inline-block;
-    margin-left: 4px;
-    font-family: 'PPFrama', sans-serif;
+  font-size: 1.8rem;
+  display: inline-block;
+  margin-left: 4px;
+  font-family: "PPFrama", sans-serif;
 }
 
 .bio-section {
-    width: 100%;
-    padding-right: 20px;
-    margin-top: 8px;
-    margin-left: -16px;
+  width: 100%;
+  padding-right: 20px;
+  margin-top: 8px;
+  margin-left: -16px;
 }
 
 .greeting {
-    font-family: 'PPFrama-Black', sans-serif;
-    font-weight: 900;
-    font-size: 2.8rem;
-    margin-bottom: 1px;    
-    letter-spacing: -1px;
+  font-family: "PPFrama-Black", sans-serif;
+  font-weight: 900;
+  font-size: 2.8rem;
+  margin-bottom: 1px;
+  letter-spacing: -1px;
 }
 
 .bio-text {
-    font-family: 'PPFrama', sans-serif;
-    font-weight: 400;
-    font-size: 1.1rem;
-    line-height: 1.5;
-    margin-bottom: 0; 
-    text-align: justify;
-    padding-left: 3rem;  
-    text-indent: -3rem;  
+  font-family: "PPFrama", sans-serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 1em;
+  text-align: justify;
+  padding-left: 3rem;
+  text-indent: -3rem;
 }
 
 .bio-text:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .footer {
-    text-align: right;
-    width: 100%;
-    margin-top: auto;
+  text-align: right;
+  width: 100%;
+  margin-top: auto;
 }
 
 .year-bracket {
-    font-family: 'PPEditorialOld', sans-serif;
-    font-size: 2.6rem;
-    letter-spacing: -1px;
-    font-weight: 900;
+  font-family: "PPEditorialOld", sans-serif;
+  font-size: 2.6rem;
+  letter-spacing: -1px;
+  font-weight: 900;
 }
 
 /* pag de projetos */
 
 .active-link {
-    opacity: 0.55;
-    pointer-events: none;
-    cursor: default;
+  opacity: 0.55;
+  pointer-events: none;
+  cursor: default;
 }
 
 .projects-sidebar {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
 }
 
 .categories-list {
-    width: 100%;
-    margin-top: 10px; 
+  width: 100%;
+  margin-top: 10px;
 }
 
 .category-item {
-    border-bottom: 2px solid #002eff;
-    padding-top: 0;
-    padding-bottom: 0; 
-    margin-bottom: 35px; 
+  border-bottom: 2px solid #002eff;
+  width: 100%;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 35px;
 }
 
 .category-item:first-child {
-    border-top: none; 
-    padding-top: 0; 
+  border-top: none;
+  padding-top: 0;
 }
 
 .category-link {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #002eff;
-    text-decoration: none;
-    font-family: 'PPEditorialOld-Black', serif;
-    font-weight: 800;
-    font-size: 2.4rem; 
-    letter-spacing: -0.5px;
-    transition: opacity 0.2s ease;
-    padding-bottom: 60px; 
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: 12px;
+  color: #002eff;
+  text-decoration: none;
+  font-family: "PPEditorialOld-Black", serif;
+  font-weight: 800;
+  font-size: 2.8rem;
+  letter-spacing: -0.5px;
+  transition: opacity 0.2s ease;
+  padding-bottom: 60px;
+  width: 100%;
 }
 
 .category-link:hover {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 .category-link .arrow-down {
-    font-size: 2.2rem; 
-    font-family: 'PPFrama', sans-serif;
+  font-size: 2.2rem;
+  font-family: "PPFrama", sans-serif;
+  margin-left: 0;
+  line-height: 1;
+  position: relative;
+  top: -2px;
 }
 
 .projects-section {
-    display: flex;
-    flex-direction: column;
-    gap: 35px; 
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
 }
 
 .skills-block {
-    text-align: left;
+  text-align: left;
+  margin-top: 10px;
 }
 
 .skills-title {
-    font-family: 'PPFrama-Black', sans-serif;
-    font-weight: 900;
-    font-size: 2.8rem;
-    letter-spacing: -1px;
-    margin-bottom: 15px;
+  font-family: "PPFrama-Black", sans-serif;
+  font-weight: 900;
+  font-size: 2.8rem;
+  letter-spacing: -1px;
+  margin-bottom: 15px;
 }
 
 .skills-list {
-    list-style: none; 
-    font-family: 'PPFrama', sans-serif;
-    font-weight: 400;
-    font-size: 1.1rem; 
-    line-height: 1.5;
+  list-style: none;
+  font-family: "PPFrama", sans-serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.5;
 }
 
 .skills-list > li {
-    margin-bottom: 8px;
+  margin-bottom: 8px;
 }
 
 .skills-sublist {
-    list-style: none;
-    padding-left: 20px; 
-    margin-top: 4px;
+  list-style: none;
+  padding-left: 20px;
+  margin-top: 4px;
 }
 
 .skills-sublist li {
-    font-size: 1.1rem; 
-    opacity: 0.9;
-    line-height: 1.4;
+  font-size: 1.1rem;
+  opacity: 0.9;
+  line-height: 1.4;
 }
 
 /* responsividade geral */
 
 @media (max-width: 768px) {
+  body {
+    overflow: auto;
+    height: auto;
+    min-height: 100vh;
+  }
 
-    body {
-        overflow: auto;
-        height: auto;
-        min-height: 100vh;
-    }
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 40px 24px;
+    gap: 30px;
+  }
 
-    .container {
-        display: flex;
-        flex-direction: column;
-        height: auto;
-        padding: 40px 24px;
-        gap: 30px;
-    }
+  .sidebar {
+    order: 1;
+    height: 220px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: visible;
+  }
 
-    .sidebar {
-        order: 1; 
-        height: 220px; 
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        overflow: visible; 
-    }
+  .vertical-logo {
+    position: absolute;
+    transform: rotate(90deg) scale(1.4);
+    transform-origin: center center;
 
-    .vertical-logo {
-        position: absolute;
-        transform: rotate(90deg) scale(1.4); 
-        transform-origin: center center;
-        
-        height: 550px; 
-        width: auto;
-        
-        max-width: none;
-        bottom: auto;
-        left: auto;
-    }
+    height: 550px;
+    width: auto;
 
-    .main-content {
-        order: 2; 
-        height: auto;
-        justify-content: flex-start;
-        margin-top: 20px;
-    }
+    max-width: none;
+    bottom: auto;
+    left: auto;
+  }
 
-    .content-wrapper {
-        height: auto;
-        gap: 30px;
-    }
-    .nav-link {
-        font-size: 1.5rem;
-    }
+  .main-content {
+    order: 2;
+    height: auto;
+    justify-content: flex-start;
+    margin-top: 20px;
+  }
 
-    .arrow {
-        font-size: 1.5rem;
-    }
+  .content-wrapper {
+    height: auto;
+    gap: 30px;
+  }
+  .nav-link {
+    font-size: 1.5rem;
+  }
 
-    .bio-section {
-        margin-left: 0;
-        padding-right: 0;
-    }
+  .arrow {
+    font-size: 1.5rem;
+  }
 
-    .greeting {
-        font-size: 2.2rem;
-        margin-bottom: 10px;
-    }
+  .bio-section {
+    margin-left: 0;
+    padding-right: 0;
+  }
 
-    .bio-text {
-        font-size: 1rem;
-        line-height: 1.6;
-        text-align: left;
-        padding-left: 0;  
-        text-indent: 0;   
-        margin-bottom: 15px;
-    }
+  .greeting {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+  }
 
-    .projects-sidebar {
-        height: auto;
-    }
+  .bio-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: left;
+    padding-left: 0;
+    text-indent: 0;
+    margin-bottom: 15px;
+  }
 
-    .categories-list {
-        margin-top: 10px;
-    }
+  .projects-sidebar {
+    height: auto;
+  }
 
-    .category-item {
-        margin-bottom: 15px;
-    }
+  .categories-list {
+    margin-top: 10px;
+  }
 
-    .category-link {
-        font-size: 1.8rem;
-        padding-bottom: 15px;
-    }
+  .category-item {
+    margin-bottom: 15px;
+  }
 
-    .category-link .arrow-down {
-        font-size: 1.6rem;
-    }
+  .category-link {
+    font-size: 1.8rem;
+    padding-bottom: 15px;
+  }
 
-    .projects-section {
-        gap: 30px;
-    }
+  .category-link .arrow-down {
+    font-size: 1.6rem;
+  }
 
-    .skills-title {
-        font-size: 2.2rem;
-        margin-bottom: 12px;
-    }
+  .projects-section {
+    gap: 30px;
+  }
 
-    .skills-list, 
-    .skills-sublist li {
-        font-size: 1rem;
-    }
+  .skills-title {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+  }
 
-    .footer {
-        order: 3;
-        text-align: left;
-        margin-top: 20px;
-    }
+  .skills-list,
+  .skills-sublist li {
+    font-size: 1rem;
+  }
 
-    .year-bracket {
-        font-size: 2rem;
-    }
+  .footer {
+    order: 3;
+    text-align: left;
+    margin-top: 20px;
+  }
+
+  .year-bracket {
+    font-size: 2rem;
+  }
 }
