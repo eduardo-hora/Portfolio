@@ -57,28 +57,25 @@
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   column-gap: 50px;
-  align-items: start;
+  align-items: stretch;
   min-height: 100vh;
   padding: 60px;
 }
 
 .main-content {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  display: block;
   width: 100%;
-  min-height: calc(100vh - 120px);
+  height: calc(100vh - 120px);
   position: sticky;
   top: 60px;
 }
 
 .content-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   width: 100%;
   height: 100%;
-  gap: 40px;
+  gap: 20px;
 }
 
 .navbar {
@@ -107,7 +104,7 @@
 .footer {
   text-align: right;
   width: 100%;
-  margin-top: 0;
+  margin-top: auto;
 }
 
 .year-bracket {
@@ -195,7 +192,7 @@ body.projects-page {
   color: #002eff;
   min-height: 100vh;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
 }
 
 body.projects-page ::selection {
@@ -251,6 +248,7 @@ body.projects-page .year-bracket {
   flex-direction: column;
   border-bottom: none;
   margin-bottom: 0;
+  min-height: 0;
 }
 
 .category-link {
@@ -290,15 +288,17 @@ body.projects-page .year-bracket {
   justify-content: space-between;
   border-top: 2px solid #002eff;
   border-bottom: 2px solid #002eff;
-  padding: 15px 0;
+  padding: 20px 0;
+  min-height: 0;
 }
 
 .drawer-header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   width: 100%;
   padding-bottom: 10px;
+  flex: 0 0 auto;
 }
 
 .visit-site-link {
@@ -306,7 +306,8 @@ body.projects-page .year-bracket {
   font-weight: 200;
   color: #002eff;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
+  text-transform: lowercase;
   transition: opacity 0.2s ease;
 }
 
@@ -323,20 +324,33 @@ body.projects-page .year-bracket {
 
 .project-preview-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 100%;
   flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  padding: 10px 0;
 }
 
 .iframe-wrapper {
-  width: 100%;
-  aspect-ratio: 16 / 9;
   position: relative;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 10;
+  max-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
-  border: 1px solid #002eff;
-  border-radius: 4px;
-  background-color: #ffffff;
+  border: none;
+  background-color: transparent;
+}
+
+.iframe-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .iframe-wrapper iframe {
@@ -397,16 +411,42 @@ body.projects-page .year-bracket {
   min-height: 40px;
 }
 
-.drawer-controls-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.projects-section {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  height: 100%;
   width: 100%;
-  padding-top: 15px;
+  overflow: hidden;
+}
+
+.info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+}
+
+#project-info {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  height: 100%;
+  width: 100%;
+}
+
+.drawer-controls-bar {
+  grid-row: 2;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100%;
+  padding-top: 20px;
+  background-color: transparent;
 }
 
 .arrow-navigation {
-  display: flex;
+  display: flex !important;
+  flex-direction: row !important;
   gap: 10px;
 }
 
@@ -434,20 +474,6 @@ body.projects-page .year-bracket {
 
 .icon-btn:active {
   transform: scale(0.94);
-}
-
-.projects-section {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-}
-
-.info-block {
-  min-height: 200px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
 }
 
 body.projects-page .bio-text,
@@ -550,6 +576,10 @@ body.projects-page .info-block p {
   right: 40px;
 }
 
+body.projects-page:has(.categories-list.has-open) .footer {
+  display: none;
+}
+
 @media (max-width: 768px) {
   body.home-page,
   body.projects-page {
@@ -580,6 +610,18 @@ body.projects-page .info-block p {
     height: auto;
     min-height: auto;
     margin-top: 20px;
+  }
+
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .projects-section,
+  #project-info {
+    display: flex !important;
+    flex-direction: column;
   }
 
   .nav-link {

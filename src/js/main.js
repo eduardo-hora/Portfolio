@@ -30,16 +30,20 @@ function setProjectMeta(noteText = "", captionText = "") {
 }
 
 function updateCategoryInfo(categoryId) {
+  const webArrows = document.getElementById("webdesign-arrows");
+
   if (categoryId === "webdesign") {
+    if (webArrows) webArrows.style.display = "flex";
     currentIndex = 0;
     window.updateProjectView();
     return;
   }
 
+  if (webArrows) webArrows.style.display = "none";
+
   const categoryMeta = {
     cartazes: {
       note: 'O cartaz para mim é um exercício de síntese, "uma imagem fala mais que mil palavras". Nestes trabalhos, procuro sempre a hierarquia e a clareza da informação necessária, utilizando a cor e a tipografia como metáforas ou simbolismos ao evento ou tema do cartaz.',
-      caption: "Série de cartazes experimentais e académicos.",
     },
     editorial: {
       note: "Projetos de Editorial em fase de desenvolvimento e catalogação.",
@@ -75,7 +79,7 @@ window.toggleCategory = function (categoryId) {
     currentCategory = categoryId;
 
     if (defaultInfo) defaultInfo.style.display = "none";
-    if (projectInfo) projectInfo.style.display = "block";
+    if (projectInfo) projectInfo.style.display = "grid";
 
     updateCategoryInfo(categoryId);
   } else {

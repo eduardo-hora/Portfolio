@@ -24,7 +24,7 @@
                   id="site-url"
                   target="_blank"
                   class="visit-site-link"
-                  >Visita o Site ↗︎</a
+                  >visita o site</a
                 >
               </div>
 
@@ -35,32 +35,6 @@
                     src=""
                     title="Preview Web Design"
                   ></iframe>
-                </div>
-              </div>
-
-              <div class="drawer-controls-bar">
-                <button
-                  class="icon-btn back-btn"
-                  onclick="closeCategories()"
-                  title="Voltar às categorias"
-                >
-                  ←
-                </button>
-                <div class="arrow-navigation">
-                  <button
-                    class="icon-btn nav-btn"
-                    onclick="prevProject()"
-                    title="Anterior"
-                  >
-                    ←
-                  </button>
-                  <button
-                    class="icon-btn nav-btn"
-                    onclick="nextProject()"
-                    title="Seguinte"
-                  >
-                    →
-                  </button>
                 </div>
               </div>
             </div>
@@ -75,16 +49,6 @@
             <div class="project-drawer">
               <div class="placeholder-box">
                 <p>Projetos de Editorial em breve.</p>
-              </div>
-
-              <div class="drawer-controls-bar">
-                <button
-                  class="icon-btn back-btn"
-                  onclick="closeCategories()"
-                  title="Voltar às categorias"
-                >
-                  ←
-                </button>
               </div>
             </div>
           </div>
@@ -158,16 +122,6 @@
                   onclick="openFullscreenImage(11)"
                 />
               </div>
-
-              <div class="drawer-controls-bar">
-                <button
-                  class="icon-btn back-btn"
-                  onclick="closeCategories()"
-                  title="Voltar às categorias"
-                >
-                  ←
-                </button>
-              </div>
             </div>
           </div>
 
@@ -180,16 +134,6 @@
             <div class="project-drawer">
               <div class="placeholder-box">
                 <p>Projetos de Motion Design em breve.</p>
-              </div>
-
-              <div class="drawer-controls-bar">
-                <button
-                  class="icon-btn back-btn"
-                  onclick="closeCategories()"
-                  title="Voltar às categorias"
-                >
-                  ←
-                </button>
               </div>
             </div>
           </div>
@@ -217,14 +161,15 @@
             <div id="default-info" class="info-block">
               <p class="bio-text">
                 Aqui encontras uma seleção do meu trabalho organizada em quatro
-                áreas, começar pelo **Web Design**, que para mim é onde a
-                composição e a estrutura ganham outra dimensão. Para mim, a
-                grande beleza do digital é que o design nunca é estático: é
+                áreas, começar pelo <strong>Web Design</strong>, que para mim é
+                onde a composição e a estrutura ganham outra dimensão. Para mim,
+                a grande beleza do digital é que o design nunca é estático: é
                 fluido, dinâmico e vivo, e é incrível ter o poder de moldar essa
                 interação.
               </p>
               <p class="bio-text">
-                As secções de **Editorial**, **Cartazes** e **Motion Design**
+                As secções de <strong>Editorial</strong>,
+                <strong>Cartazes</strong> e <strong>Motion Design</strong>
                 complementam esta ideia. São áreas onde comecei a minha carreira
                 como designer e onde exploro tudo o que mencionei anteriormente,
                 seja através da tipografia, da composição, da cor, entre outros
@@ -236,6 +181,37 @@
               <div class="project-meta">
                 <p class="project-note" id="project-note"></p>
                 <p class="project-caption" id="project-caption"></p>
+              </div>
+
+              <div class="drawer-controls-bar">
+                <button
+                  class="icon-btn back-btn"
+                  onclick="closeCategories()"
+                  title="Voltar às categorias"
+                >
+                  ←
+                </button>
+
+                <div
+                  class="arrow-navigation"
+                  id="webdesign-arrows"
+                  style="display: none"
+                >
+                  <button
+                    class="icon-btn nav-btn"
+                    onclick="prevProject()"
+                    title="Anterior"
+                  >
+                    ←
+                  </button>
+                  <button
+                    class="icon-btn nav-btn"
+                    onclick="nextProject()"
+                    title="Seguinte"
+                  >
+                    →
+                  </button>
+                </div>
               </div>
             </div>
           </article>
