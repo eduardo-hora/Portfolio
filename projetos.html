@@ -7,30 +7,191 @@
     <link rel="stylesheet" href="src/styles/styles.css" />
     <link rel="icon" href="src/assets/images/favicon.png" type="image/x-icon" />
   </head>
-
   <body class="projects-page">
-    <div class="container">
+    <div class="container" id="main-container">
       <aside class="sidebar projects-sidebar">
-        <div class="categories-list">
-          <div class="category-item">
-            <a href="#" class="category-link"
-              >Web Design <span class="arrow-down">↓</span></a
-            >
+        <div class="categories-list" id="categories-list">
+          <div class="category-item" id="cat-webdesign">
+            <button class="category-link" onclick="toggleCategory('webdesign')">
+              <span>Web Design</span>
+              <span class="arrow-down">↓</span>
+            </button>
+
+            <div class="project-drawer">
+              <div class="drawer-header">
+                <a
+                  href="#"
+                  id="site-url"
+                  target="_blank"
+                  class="visit-site-link"
+                  >Visita o Site ↗︎</a
+                >
+              </div>
+
+              <div class="project-preview-container">
+                <div class="iframe-wrapper">
+                  <iframe
+                    id="project-iframe"
+                    src=""
+                    title="Preview Web Design"
+                  ></iframe>
+                </div>
+              </div>
+
+              <div class="drawer-controls-bar">
+                <button
+                  class="icon-btn back-btn"
+                  onclick="closeCategories()"
+                  title="Voltar às categorias"
+                >
+                  ←
+                </button>
+                <div class="arrow-navigation">
+                  <button
+                    class="icon-btn nav-btn"
+                    onclick="prevProject()"
+                    title="Anterior"
+                  >
+                    ←
+                  </button>
+                  <button
+                    class="icon-btn nav-btn"
+                    onclick="nextProject()"
+                    title="Seguinte"
+                  >
+                    →
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="category-item">
-            <a href="#" class="category-link"
-              >Editorial <span class="arrow-down">↓</span></a
-            >
+
+          <div class="category-item" id="cat-editorial">
+            <button class="category-link" onclick="toggleCategory('editorial')">
+              <span>Editorial</span>
+              <span class="arrow-down">↓</span>
+            </button>
+
+            <div class="project-drawer">
+              <div class="placeholder-box">
+                <p>Projetos de Editorial em breve.</p>
+              </div>
+
+              <div class="drawer-controls-bar">
+                <button
+                  class="icon-btn back-btn"
+                  onclick="closeCategories()"
+                  title="Voltar às categorias"
+                >
+                  ←
+                </button>
+              </div>
+            </div>
           </div>
-          <div class="category-item">
-            <a href="#" class="category-link"
-              >Cartazes <span class="arrow-down">↓</span></a
-            >
+
+          <div class="category-item" id="cat-cartazes">
+            <button class="category-link" onclick="toggleCategory('cartazes')">
+              <span>Cartazes</span>
+              <span class="arrow-down">↓</span>
+            </button>
+
+            <div class="project-drawer posters-drawer">
+              <div class="posters-scroll-container" id="posters-scroll">
+                <img
+                  src="src/assets/projects/cartazes/1.png"
+                  alt="Cartaz 1"
+                  onclick="openFullscreenImage(0)"
+                />
+                <img
+                  src="src/assets/projects/cartazes/2.png"
+                  alt="Cartaz 2"
+                  onclick="openFullscreenImage(1)"
+                />
+                <img
+                  src="src/assets/projects/cartazes/3.png"
+                  alt="Cartaz 3"
+                  onclick="openFullscreenImage(2)"
+                />
+                <img
+                  src="src/assets/projects/cartazes/4.png"
+                  alt="Cartaz 4"
+                  onclick="openFullscreenImage(3)"
+                />
+                <img
+                  src="src/assets/projects/cartazes/5.png"
+                  alt="Cartaz 5"
+                  onclick="openFullscreenImage(4)"
+                />
+                <img
+                  src="src/assets/projects/cartazes/6.png"
+                  alt="Cartaz 6"
+                  onclick="openFullscreenImage(5)"
+                />
+                <img
+                  src="src/assets/projects/cartazes/7.png"
+                  alt="Cartaz 7"
+                  onclick="openFullscreenImage(6)"
+                />
+                <img
+                  src="src/assets/projects/cartazes/8.png"
+                  alt="Cartaz 8"
+                  onclick="openFullscreenImage(7)"
+                />
+                <img
+                  src="src/assets/projects/cartazes/9.jpg"
+                  alt="Cartaz 9"
+                  onclick="openFullscreenImage(8)"
+                />
+                <img
+                  src="src/assets/projects/cartazes/10.png"
+                  alt="Cartaz 10"
+                  onclick="openFullscreenImage(9)"
+                />
+                <img
+                  src="src/assets/projects/cartazes/11.png"
+                  alt="Cartaz 11"
+                  onclick="openFullscreenImage(10)"
+                />
+                <img
+                  src="src/assets/projects/cartazes/12.png"
+                  alt="Cartaz 12"
+                  onclick="openFullscreenImage(11)"
+                />
+              </div>
+
+              <div class="drawer-controls-bar">
+                <button
+                  class="icon-btn back-btn"
+                  onclick="closeCategories()"
+                  title="Voltar às categorias"
+                >
+                  ←
+                </button>
+              </div>
+            </div>
           </div>
-          <div class="category-item">
-            <a href="#" class="category-link"
-              >Motion Design <span class="arrow-down">↓</span></a
-            >
+
+          <div class="category-item" id="cat-motion">
+            <button class="category-link" onclick="toggleCategory('motion')">
+              <span>Motion Design</span>
+              <span class="arrow-down">↓</span>
+            </button>
+
+            <div class="project-drawer">
+              <div class="placeholder-box">
+                <p>Projetos de Motion Design em breve.</p>
+              </div>
+
+              <div class="drawer-controls-bar">
+                <button
+                  class="icon-btn back-btn"
+                  onclick="closeCategories()"
+                  title="Voltar às categorias"
+                >
+                  ←
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </aside>
@@ -39,55 +200,43 @@
         <div class="content-wrapper">
           <nav class="navbar">
             <a href="index.html" class="nav-link"
-              >Sobre Mim <span class="arrow">↖︎</span></a
+              >Sobre Mim <span class="nav-arrow">&#x2198;</span></a
             >
-            <a href="#" class="nav-link active-link"
-              >Projetos <span class="arrow">↘︎︎</span></a
+            <a href="projetos.html" class="nav-link"
+              >Projetos <span class="nav-arrow">&#x2196;</span></a
             >
-            <a href="#" class="nav-link"
-              >Instagram <span class="arrow">↖︎</span></a
+            <a
+              href="https://www.instagram.com/in__tiime/"
+              target="_blank"
+              class="nav-link"
+              >Instagram <span class="nav-arrow">&#x2196;</span></a
             >
           </nav>
 
           <article class="bio-section projects-section">
-            <div class="projects-desc">
+            <div id="default-info" class="info-block">
               <p class="bio-text">
                 Aqui encontras uma seleção do meu trabalho organizada em quatro
-                áreas, começando pelo Web Design, que para mim é onde a
+                áreas, começar pelo **Web Design**, que para mim é onde a
                 composição e a estrutura ganham outra dimensão. Para mim, a
                 grande beleza do digital é que o design nunca é estático: é
                 fluido, dinâmico e vivo, e é incrível ter o poder de moldar essa
                 interação.
               </p>
               <p class="bio-text">
-                As secções de Editorial, Cartazes e Motion Design complementam
-                esta ideia. São áreas onde comecei a minha carreira como
-                designer e onde exploro tudo o que mencionei anteriormente, seja
-                através da tipografia, da composição, da cor, entre outros
+                As secções de **Editorial**, **Cartazes** e **Motion Design**
+                complementam esta ideia. São áreas onde comecei a minha carreira
+                como designer e onde exploro tudo o que mencionei anteriormente,
+                seja através da tipografia, da composição, da cor, entre outros
                 elementos.
               </p>
             </div>
 
-            <div class="skills-block">
-              <h3 class="skills-title">Competências</h3>
-              <ul class="skills-list">
-                <li>Figma;</li>
-                <li>
-                  Adobe Creative Suite-
-                  <ul class="skills-sublist">
-                    <li>·Photoshop,</li>
-                    <li>·Illustrator,</li>
-                    <li>·Indesign,</li>
-                    <li>·After Effects;</li>
-                  </ul>
-                </li>
-                <li>
-                  Visual Studio Code -
-                  <ul class="skills-sublist">
-                    <li>·HTML e CSS.</li>
-                  </ul>
-                </li>
-              </ul>
+            <div id="project-info" class="info-block" style="display: none">
+              <div class="project-meta">
+                <p class="project-note" id="project-note"></p>
+                <p class="project-caption" id="project-caption"></p>
+              </div>
             </div>
           </article>
 
@@ -97,5 +246,36 @@
         </div>
       </main>
     </div>
+
+    <div
+      id="fullscreen-overlay"
+      class="fullscreen-overlay"
+      style="display: none"
+    >
+      <button
+        class="fullscreen-close-btn"
+        onclick="closeFullscreen()"
+        title="Fechar"
+      >
+        ×
+      </button>
+      <button
+        class="fullscreen-nav-btn prev-btn"
+        onclick="prevFullscreenImage()"
+        title="Anterior"
+      >
+        ←
+      </button>
+      <div class="fullscreen-content" id="fullscreen-content"></div>
+      <button
+        class="fullscreen-nav-btn next-btn"
+        onclick="nextFullscreenImage()"
+        title="Seguinte"
+      >
+        →
+      </button>
+    </div>
+
+    <script src="src/js/main.js"></script>
   </body>
 </html>
