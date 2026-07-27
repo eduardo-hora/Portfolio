@@ -365,7 +365,8 @@ body.projects-page .year-bracket {
   pointer-events: auto;
 }
 
-.posters-scroll-container {
+.posters-scroll-container,
+.motion-scroll-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -378,8 +379,15 @@ body.projects-page .year-bracket {
   margin: 10px 0;
 }
 
-.posters-scroll-container img {
+.posters-scroll-container > *,
+.motion-scroll-container > * {
   direction: ltr;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.posters-scroll-container img,
+.motion-images-group img {
   width: auto;
   max-width: 100%;
   height: auto;
@@ -390,19 +398,23 @@ body.projects-page .year-bracket {
   transition: transform 0.2s ease;
 }
 
-.posters-scroll-container img:hover {
+.posters-scroll-container img:hover,
+.motion-images-group img:hover {
   transform: scale(1.02);
 }
 
-.posters-scroll-container::-webkit-scrollbar {
+.posters-scroll-container::-webkit-scrollbar,
+.motion-scroll-container::-webkit-scrollbar {
   width: 16px;
 }
 
-.posters-scroll-container::-webkit-scrollbar-track {
+.posters-scroll-container::-webkit-scrollbar-track,
+.motion-scroll-container::-webkit-scrollbar-track {
   background: transparent;
 }
 
-.posters-scroll-container::-webkit-scrollbar-thumb {
+.posters-scroll-container::-webkit-scrollbar-thumb,
+.motion-scroll-container::-webkit-scrollbar-thumb {
   background-image: url("../../src/assets/images/scrollbar.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -578,6 +590,50 @@ body.projects-page .info-block p {
 
 body.projects-page:has(.categories-list.has-open) .footer {
   display: none;
+}
+
+.motion-video-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+}
+
+.motion-images-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+  width: 100%;
+}
+
+.motion-images-group img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.motion-images-group img:hover {
+  transform: scale(1.02);
+}
+
+.motion-scroll-container::-webkit-scrollbar {
+  width: 16px;
+}
+
+.motion-scroll-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.motion-scroll-container::-webkit-scrollbar-thumb {
+  background-image: url("../../src/assets/images/scrollbar.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-color: transparent;
+  min-height: 40px;
 }
 
 @media (max-width: 768px) {

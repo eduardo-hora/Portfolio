@@ -16,6 +16,23 @@ const webProjects = [
   },
 ];
 
+const sharedMotionNote =
+  "Esta é sem duvida a vertente mais recente no meu percurso, onde o que me chama a atenção é o movimento e as animações. Apresento aqui os meus primeiro projetos de exploração dinâmica, aplicando conceitos de ritmo e animação ao design gráfico.";
+
+const categoryMeta = {
+  cartazes: {
+    note: 'O cartaz para mim é um exercício de síntese, "uma imagem fala mais que mil palavras". Nestes trabalhos, procuro sempre a hierarquia e a clareza da informação necessária, utilizando a cor e a tipografia como metáforas ou simbolismos ao evento ou tema do cartaz.',
+  },
+  motion: {
+    note: sharedMotionNote,
+    caption: "",
+  },
+  editorial: {
+    note: "Projetos de Editorial em fase de desenvolvimento e catalogação.",
+    caption: "",
+  },
+};
+
 let currentIndex = 0;
 let currentCategory = null;
 let galleryImages = [];
@@ -31,6 +48,7 @@ function setProjectMeta(noteText = "", captionText = "") {
 
 function updateCategoryInfo(categoryId) {
   const webArrows = document.getElementById("webdesign-arrows");
+  if (webArrows) webArrows.style.display = "none";
 
   if (categoryId === "webdesign") {
     if (webArrows) webArrows.style.display = "flex";
@@ -38,22 +56,6 @@ function updateCategoryInfo(categoryId) {
     window.updateProjectView();
     return;
   }
-
-  if (webArrows) webArrows.style.display = "none";
-
-  const categoryMeta = {
-    cartazes: {
-      note: 'O cartaz para mim é um exercício de síntese, "uma imagem fala mais que mil palavras". Nestes trabalhos, procuro sempre a hierarquia e a clareza da informação necessária, utilizando a cor e a tipografia como metáforas ou simbolismos ao evento ou tema do cartaz.',
-    },
-    editorial: {
-      note: "Projetos de Editorial em fase de desenvolvimento e catalogação.",
-      caption: "",
-    },
-    motion: {
-      note: "Explorações de animação e Motion Design em fase de curadoria.",
-      caption: "",
-    },
-  };
 
   const meta = categoryMeta[categoryId];
   if (meta) setProjectMeta(meta.note, meta.caption);
@@ -127,12 +129,15 @@ window.updateProjectView = function () {
   setProjectMeta(current.note, current.caption || "");
 };
 
-window.openFullscreenImage = function (index) {
-  const container = document.getElementById("posters-scroll");
+function openFullscreenGallery(containerId, index) {
+  const container = document.getElementById(containerId);
   if (!container) return;
 
   const imgs = container.querySelectorAll("img");
-  galleryImages = Array.from(imgs).map((img) => img.src);
+  galleryImages = Array.from(imgs).map((img) => ({
+    src: img.src,
+    alt: img.alt || "Imagem ampliada",
+  }));
   currentGalleryIndex = index;
 
   window.renderFullscreenImage();
@@ -140,6 +145,14 @@ window.openFullscreenImage = function (index) {
   const overlay = document.getElementById("fullscreen-overlay");
   if (overlay) overlay.style.display = "flex";
   document.body.style.overflow = "hidden";
+}
+
+window.openFullscreenImage = function (index) {
+  openFullscreenGallery("posters-scroll", index);
+};
+
+window.openFullscreenMotionImage = function (index) {
+  openFullscreenGallery("motion-scroll", index);
 };
 
 window.renderFullscreenImage = function () {
@@ -148,8 +161,8 @@ window.renderFullscreenImage = function () {
 
   content.innerHTML = "";
   const img = document.createElement("img");
-  img.src = galleryImages[currentGalleryIndex];
-  img.alt = `Cartaz ${currentGalleryIndex + 1}`;
+  img.src = galleryImages[currentGalleryIndex].src;
+  img.alt = galleryImages[currentGalleryIndex].alt;
   content.appendChild(img);
 };
 

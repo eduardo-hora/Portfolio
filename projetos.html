@@ -23,6 +23,7 @@
                   href="#"
                   id="site-url"
                   target="_blank"
+                  rel="noopener noreferrer"
                   class="visit-site-link"
                   >visita o site</a
                 >
@@ -34,6 +35,7 @@
                     id="project-iframe"
                     src=""
                     title="Preview Web Design"
+                    loading="lazy"
                   ></iframe>
                 </div>
               </div>
@@ -64,67 +66,78 @@
                 <img
                   src="src/assets/projects/cartazes/1.png"
                   alt="Cartaz 1"
+                  loading="lazy"
                   onclick="openFullscreenImage(0)"
                 />
                 <img
                   src="src/assets/projects/cartazes/2.png"
                   alt="Cartaz 2"
+                  loading="lazy"
                   onclick="openFullscreenImage(1)"
                 />
                 <img
                   src="src/assets/projects/cartazes/3.png"
                   alt="Cartaz 3"
+                  loading="lazy"
                   onclick="openFullscreenImage(2)"
                 />
                 <img
                   src="src/assets/projects/cartazes/4.png"
                   alt="Cartaz 4"
+                  loading="lazy"
                   onclick="openFullscreenImage(3)"
                 />
                 <img
                   src="src/assets/projects/cartazes/5.png"
                   alt="Cartaz 5"
+                  loading="lazy"
                   onclick="openFullscreenImage(4)"
                 />
                 <img
                   src="src/assets/projects/cartazes/6.png"
                   alt="Cartaz 6"
+                  loading="lazy"
                   onclick="openFullscreenImage(5)"
                 />
                 <img
                   src="src/assets/projects/cartazes/7.png"
                   alt="Cartaz 7"
+                  loading="lazy"
                   onclick="openFullscreenImage(6)"
                 />
                 <img
                   src="src/assets/projects/cartazes/8.png"
                   alt="Cartaz 8"
+                  loading="lazy"
                   onclick="openFullscreenImage(7)"
                 />
                 <img
                   src="src/assets/projects/cartazes/9.jpg"
                   alt="Cartaz 9"
+                  loading="lazy"
                   onclick="openFullscreenImage(8)"
                 />
                 <img
                   src="src/assets/projects/cartazes/10.png"
                   alt="Cartaz 10"
+                  loading="lazy"
                   onclick="openFullscreenImage(9)"
                 />
                 <img
                   src="src/assets/projects/cartazes/11.png"
                   alt="Cartaz 11"
+                  loading="lazy"
                   onclick="openFullscreenImage(10)"
                 />
                 <img
                   src="src/assets/projects/cartazes/12.png"
                   alt="Cartaz 12"
+                  loading="lazy"
                   onclick="openFullscreenImage(11)"
                 />
               </div>
             </div>
           </div>
-
           <div class="category-item" id="cat-motion">
             <button class="category-link" onclick="toggleCategory('motion')">
               <span>Motion Design</span>
@@ -132,8 +145,55 @@
             </button>
 
             <div class="project-drawer">
-              <div class="placeholder-box">
-                <p>Projetos de Motion Design em breve.</p>
+              <div class="motion-scroll-container" id="motion-scroll">
+                <div class="iframe-wrapper motion-video-wrapper">
+                  <iframe
+                    src="https://www.youtube.com/embed/OJ5r-n3O3Fg"
+                    title="Motion Design Video"
+                    loading="lazy"
+                    allow="
+                      accelerometer;
+                      autoplay;
+                      clipboard-write;
+                      encrypted-media;
+                      gyroscope;
+                      picture-in-picture;
+                    "
+                    allowfullscreen
+                  ></iframe>
+                </div>
+                <div class="motion-images-group">
+                  <img
+                    src="src/assets/projects/overfeed/1.jpg"
+                    alt="Overfeed 1"
+                    loading="lazy"
+                    onclick="openFullscreenMotionImage(0)"
+                  />
+                  <img
+                    src="src/assets/projects/overfeed/2.jpg"
+                    alt="Overfeed 2"
+                    loading="lazy"
+                    onclick="openFullscreenMotionImage(1)"
+                  />
+                  <img
+                    src="src/assets/projects/overfeed/3.jpg"
+                    alt="Overfeed 3"
+                    loading="lazy"
+                    onclick="openFullscreenMotionImage(2)"
+                  />
+                  <img
+                    src="src/assets/projects/overfeed/4.jpg"
+                    alt="Overfeed 4"
+                    loading="lazy"
+                    onclick="openFullscreenMotionImage(3)"
+                  />
+                  <img
+                    src="src/assets/projects/overfeed/5.jpg"
+                    alt="Overfeed 5"
+                    loading="lazy"
+                    onclick="openFullscreenMotionImage(4)"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -152,6 +212,7 @@
             <a
               href="https://www.instagram.com/in__tiime/"
               target="_blank"
+              rel="noopener noreferrer"
               class="nav-link"
               >Instagram <span class="nav-arrow">&#x2196;</span></a
             >
