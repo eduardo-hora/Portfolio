@@ -16,6 +16,39 @@ const webProjects = [
   },
 ];
 
+const sharedEditorialNote =
+  "Aqui apresento projetos Editoriais com grande foco no suporte físico e na sua valorização. Eu gosto bastante de organizar estes <strong>grandes corpos de texto</strong> através de uma <strong>composição</strong> interessante e de tipografia chamativa, considerando a experiência tátil, e como a <strong>textura do papel</strong> afetaria o livro.";
+
+const editorialProjects = [
+  {
+    id: "strike",
+    note: sharedEditorialNote,
+    images: [
+      "src/assets/projects/editorial/strike/1.jpg",
+      "src/assets/projects/editorial/strike/2.jpg",
+      "src/assets/projects/editorial/strike/3.jpg",
+    ],
+  },
+  {
+    id: "torsos",
+    note: sharedEditorialNote,
+    images: [
+      "src/assets/projects/editorial/torsos/1.jpg",
+      "src/assets/projects/editorial/torsos/2.jpg",
+      "src/assets/projects/editorial/torsos/3.jpg",
+    ],
+  },
+  {
+    id: "180",
+    note: sharedEditorialNote,
+    images: [
+      "src/assets/projects/editorial/180/1.jpg",
+      "src/assets/projects/editorial/180/2.jpg",
+      "src/assets/projects/editorial/180/3.jpg",
+    ],
+  },
+];
+
 const sharedMotionNote =
   "Esta é sem duvida a vertente mais recente no meu percurso, onde o que me chama a atenção é o movimento e as animações. Apresento aqui os meus primeiro projetos de exploração dinâmica, aplicando conceitos de ritmo e animação ao design gráfico.";
 
@@ -27,13 +60,10 @@ const categoryMeta = {
     note: sharedMotionNote,
     caption: "",
   },
-  editorial: {
-    note: "Projetos de Editorial em fase de desenvolvimento e catalogação.",
-    caption: "",
-  },
 };
 
 let currentIndex = 0;
+let currentEditorialIndex = 0;
 let currentCategory = null;
 let galleryImages = [];
 let currentGalleryIndex = 0;
@@ -42,23 +72,41 @@ function setProjectMeta(noteText = "", captionText = "") {
   const noteEl = document.getElementById("project-note");
   const captionEl = document.getElementById("project-caption");
 
-  if (noteEl) noteEl.textContent = noteText;
+  if (noteEl) noteEl.innerHTML = noteText;
   if (captionEl) captionEl.textContent = captionText;
 }
 
-function updateCategoryInfo(categoryId) {
+function hideAllArrows() {
   const webArrows = document.getElementById("webdesign-arrows");
-  if (webArrows) webArrows.style.display = "none";
+  const editorialArrows = document.getElementById("editorial-arrows");
+
+  if (webArrows) webArrows.style.setProperty("display", "none", "important");
+  if (editorialArrows)
+    editorialArrows.style.setProperty("display", "none", "important");
+}
+
+function updateCategoryInfo(categoryId) {
+  hideAllArrows();
 
   if (categoryId === "webdesign") {
-    if (webArrows) webArrows.style.display = "flex";
+    const webArrows = document.getElementById("webdesign-arrows");
+    if (webArrows) webArrows.style.setProperty("display", "flex", "important");
     currentIndex = 0;
     window.updateProjectView();
     return;
   }
 
+  if (categoryId === "editorial") {
+    const editorialArrows = document.getElementById("editorial-arrows");
+    if (editorialArrows)
+      editorialArrows.style.setProperty("display", "flex", "important");
+    currentEditorialIndex = 0;
+    window.updateEditorialView();
+    return;
+  }
+
   const meta = categoryMeta[categoryId];
-  if (meta) setProjectMeta(meta.note, meta.caption);
+  if (meta) setProjectMeta(meta.note, meta.caption || "");
 }
 
 window.toggleCategory = function (categoryId) {
@@ -98,6 +146,7 @@ window.closeCategories = function () {
   });
 
   currentCategory = null;
+  hideAllArrows();
 
   const defaultInfo = document.getElementById("default-info");
   const projectInfo = document.getElementById("project-info");
@@ -107,15 +156,26 @@ window.closeCategories = function () {
 };
 
 window.nextProject = function () {
-  if (currentCategory !== "webdesign") return;
-  currentIndex = (currentIndex + 1) % webProjects.length;
-  window.updateProjectView();
+  if (currentCategory === "webdesign") {
+    currentIndex = (currentIndex + 1) % webProjects.length;
+    window.updateProjectView();
+  } else if (currentCategory === "editorial") {
+    currentEditorialIndex =
+      (currentEditorialIndex + 1) % editorialProjects.length;
+    window.updateEditorialView();
+  }
 };
 
 window.prevProject = function () {
-  if (currentCategory !== "webdesign") return;
-  currentIndex = (currentIndex - 1 + webProjects.length) % webProjects.length;
-  window.updateProjectView();
+  if (currentCategory === "webdesign") {
+    currentIndex = (currentIndex - 1 + webProjects.length) % webProjects.length;
+    window.updateProjectView();
+  } else if (currentCategory === "editorial") {
+    currentEditorialIndex =
+      (currentEditorialIndex - 1 + editorialProjects.length) %
+      editorialProjects.length;
+    window.updateEditorialView();
+  }
 };
 
 window.updateProjectView = function () {
@@ -127,6 +187,25 @@ window.updateProjectView = function () {
   if (iframe) iframe.src = current.url;
   if (siteUrl) siteUrl.href = current.url;
   setProjectMeta(current.note, current.caption || "");
+};
+
+window.updateEditorialView = function () {
+  const current = editorialProjects[currentEditorialIndex];
+
+  document
+    .querySelectorAll(".editorial-scroll-container")
+    .forEach((container) => {
+      container.style.setProperty("display", "none", "important");
+    });
+
+  const activeContainer = document.getElementById(
+    `editorial-scroll-${current.id}`,
+  );
+  if (activeContainer) {
+    activeContainer.style.setProperty("display", "flex", "important");
+  }
+
+  setProjectMeta(current.note, "");
 };
 
 function openFullscreenGallery(containerId, index) {
@@ -153,6 +232,10 @@ window.openFullscreenImage = function (index) {
 
 window.openFullscreenMotionImage = function (index) {
   openFullscreenGallery("motion-scroll", index);
+};
+
+window.openFullscreenEditorialImage = function (projectId, index) {
+  openFullscreenGallery(`editorial-scroll-${projectId}`, index);
 };
 
 window.renderFullscreenImage = function () {

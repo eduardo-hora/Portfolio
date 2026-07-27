@@ -48,9 +48,164 @@
               <span class="arrow-down">↓</span>
             </button>
 
-            <div class="project-drawer">
-              <div class="placeholder-box">
-                <p>Projetos de Editorial em breve.</p>
+            <div class="project-drawer posters-drawer">
+              <div
+                class="posters-scroll-container editorial-scroll-container"
+                id="editorial-scroll-strike"
+                style="display: flex"
+              >
+                <img
+                  src="src/assets/projects/editorial/strike/1.png"
+                  alt="Strike 1"
+                  loading="lazy"
+                  onclick="openFullscreenEditorialImage('strike', 0)"
+                />
+                <img
+                  src="src/assets/projects/editorial/strike/2.png"
+                  alt="Strike 2"
+                  loading="lazy"
+                  onclick="openFullscreenEditorialImage('strike', 1)"
+                />
+                <img
+                  src="src/assets/projects/editorial/strike/3.png"
+                  alt="Strike 3"
+                  loading="lazy"
+                  onclick="openFullscreenEditorialImage('strike', 2)"
+                />
+                <img
+                  src="src/assets/projects/editorial/strike/4.png"
+                  alt="Strike 4"
+                  loading="lazy"
+                  onclick="openFullscreenEditorialImage('strike', 3)"
+                />
+                <img
+                  src="src/assets/projects/editorial/strike/5.png"
+                  alt="Strike 5"
+                  loading="lazy"
+                  onclick="openFullscreenEditorialImage('strike', 4)"
+                />
+                <img
+                  src="src/assets/projects/editorial/strike/6.png"
+                  alt="Strike 6"
+                  loading="lazy"
+                  onclick="openFullscreenEditorialImage('strike', 5)"
+                />
+                <img
+                  src="src/assets/projects/editorial/strike/7.png"
+                  alt="Strike 7"
+                  loading="lazy"
+                  onclick="openFullscreenEditorialImage('strike', 6)"
+                />
+                <img
+                  src="src/assets/projects/editorial/strike/8.png"
+                  alt="Strike 8"
+                  loading="lazy"
+                  onclick="openFullscreenEditorialImage('strike', 7)"
+                />
+                <img
+                  src="src/assets/projects/editorial/strike/9.png"
+                  alt="Strike 9"
+                  loading="lazy"
+                  onclick="openFullscreenEditorialImage('strike', 8)"
+                />
+                <img
+                  src="src/assets/projects/editorial/strike/10.png"
+                  alt="Strike 10"
+                  loading="lazy"
+                  onclick="openFullscreenEditorialImage('strike', 9)"
+                />
+              </div>
+
+              <div
+                class="posters-scroll-container editorial-scroll-container"
+                id="editorial-scroll-torsos"
+                style="display: none"
+              >
+                <img
+                  src="src/assets/projects/editorial/yorgos/1.png"
+                  alt="Yorgos 1"
+                  loading="lazy"
+                  onclick="openFullscreenEditorialImage('yorgos', 0)"
+                />
+                <img
+                  src="src/assets/projects/editorial/yorgos/2.png"
+                  alt="Yorgos 2"
+                  loading="lazy"
+                  onclick="openFullscreenEditorialImage('yorgos', 1)"
+                />
+                <img
+                  src="src/assets/projects/editorial/yorgos/3.png"
+                  alt="Yorgos 3"
+                  loading="lazy"
+                  onclick="openFullscreenEditorialImage('yorgos', 2)"
+                />
+                <img
+                  src="src/assets/projects/editorial/yorgos/4.png"
+                  alt="Yorgos 4"
+                  loading="lazy"
+                  onclick="openFullscreenEditorialImage('yorgos', 3)"
+                />
+                <img
+                  src="src/assets/projects/editorial/yorgos/5.png"
+                  alt="Yorgos 5"
+                  loading="lazy"
+                  onclick="openFullscreenEditorialImage('yorgos', 4)"
+                />
+              </div>
+
+              <div
+                class="posters-scroll-container editorial-scroll-container"
+                id="editorial-scroll-180"
+                style="display: none"
+              >
+                <img
+                  src="src/assets/projects/editorial/180/1.png"
+                  alt="180 1"
+                  loading="lazy"
+                  onclick="openFullscreenEditorialImage('180', 0)"
+                />
+                <img
+                  src="src/assets/projects/editorial/180/2.png"
+                  alt="180 2"
+                  loading="lazy"
+                  onclick="openFullscreenEditorialImage('180', 1)"
+                />
+                <img
+                  src="src/assets/projects/editorial/180/3.png"
+                  alt="180 3"
+                  loading="lazy"
+                  onclick="openFullscreenEditorialImage('180', 2)"
+                />
+                <img
+                  src="src/assets/projects/editorial/180/4.png"
+                  alt="180 4"
+                  loading="lazy"
+                  onclick="openFullscreenEditorialImage('180', 3)"
+                />
+                <img
+                  src="src/assets/projects/editorial/180/5.png"
+                  alt="180 5"
+                  loading="lazy"
+                  onclick="openFullscreenEditorialImage('180', 4)"
+                />
+                <img
+                  src="src/assets/projects/editorial/180/6.png"
+                  alt="180 6"
+                  loading="lazy"
+                  onclick="openFullscreenEditorialImage('180', 5)"
+                />
+                <img
+                  src="src/assets/projects/editorial/180/7.png"
+                  alt="180 7"
+                  loading="lazy"
+                  onclick="openFullscreenEditorialImage('180', 6)"
+                />
+                <img
+                  src="src/assets/projects/editorial/180/8.png"
+                  alt="180 8"
+                  loading="lazy"
+                  onclick="openFullscreenEditorialImage('180', 7)"
+                />
               </div>
             </div>
           </div>
@@ -256,6 +411,27 @@
                 <div
                   class="arrow-navigation"
                   id="webdesign-arrows"
+                  style="display: none"
+                >
+                  <button
+                    class="icon-btn nav-btn"
+                    onclick="prevProject()"
+                    title="Anterior"
+                  >
+                    ←
+                  </button>
+                  <button
+                    class="icon-btn nav-btn"
+                    onclick="nextProject()"
+                    title="Seguinte"
+                  >
+                    →
+                  </button>
+                </div>
+
+                <div
+                  class="arrow-navigation"
+                  id="editorial-arrows"
                   style="display: none"
                 >
                   <button
