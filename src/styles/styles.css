@@ -89,16 +89,18 @@
   font-family: "PPEditorialOld", serif;
   font-size: 1.8rem;
   font-weight: 400;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.25s ease;
 }
 
 .nav-link:hover {
   opacity: 0.7;
 }
 
+.nav-link.active,
 .active-link {
-  opacity: 0.55;
-  pointer-events: none;
+  opacity: 0.55 !important;
+  pointer-events: none !important;
+  cursor: default !important;
 }
 
 .footer {
@@ -308,11 +310,11 @@ body.projects-page .year-bracket {
   text-decoration: none;
   font-size: 1.4rem;
   text-transform: lowercase;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.25s ease;
 }
 
 .visit-site-link:hover {
-  opacity: 0.6;
+  opacity: 0.65;
 }
 
 .placeholder-box {
@@ -395,12 +397,15 @@ body.projects-page .year-bracket {
   object-fit: contain;
   cursor: pointer;
   flex-shrink: 0;
-  transition: transform 0.2s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 
 .posters-scroll-container img:hover,
 .motion-images-group img:hover {
-  transform: scale(1.02);
+  opacity: 0.88;
+  transform: translateY(-2px);
 }
 
 .posters-scroll-container::-webkit-scrollbar,
@@ -447,18 +452,18 @@ body.projects-page .year-bracket {
 
 .drawer-controls-bar {
   grid-row: 2;
-  display: flex !important;
-  flex-direction: row !important;
-  justify-content: space-between !important;
-  align-items: center !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   padding-top: 20px;
   background-color: transparent;
 }
 
 .arrow-navigation {
-  display: flex !important;
-  flex-direction: row !important;
+  display: flex;
+  flex-direction: row;
   gap: 10px;
 }
 
@@ -475,17 +480,19 @@ body.projects-page .year-bracket {
   font-size: 1.2rem;
   cursor: pointer;
   transition:
-    transform 0.15s ease,
-    background-color 0.15s ease;
+    opacity 0.25s ease,
+    background-color 0.25s ease,
+    transform 0.25s ease;
 }
 
 .icon-btn:hover {
   background-color: #0022bd;
-  transform: scale(1.08);
+  opacity: 0.9;
+  transform: scale(1.04);
 }
 
 .icon-btn:active {
-  transform: scale(0.94);
+  transform: scale(0.96);
 }
 
 body.projects-page .bio-text,
@@ -552,6 +559,14 @@ body.projects-page .info-block p {
   justify-content: center;
   align-items: center;
   font-family: "PPFrama", sans-serif !important;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.fullscreen-close-btn:hover {
+  opacity: 0.85;
+  transform: scale(1.04);
 }
 
 .fullscreen-nav-btn {
@@ -571,13 +586,15 @@ body.projects-page .info-block p {
   justify-content: center;
   align-items: center;
   transition:
-    transform 0.15s ease,
-    background-color 0.15s ease;
+    opacity 0.25s ease,
+    background-color 0.25s ease,
+    transform 0.25s ease;
 }
 
 .fullscreen-nav-btn:hover {
   background-color: #0022bd;
-  transform: translateY(-50%) scale(1.08);
+  opacity: 0.9;
+  transform: translateY(-50%) scale(1.04);
 }
 
 .fullscreen-nav-btn.prev-btn {
@@ -612,11 +629,14 @@ body.projects-page:has(.categories-list.has-open) .footer {
   max-height: 100%;
   object-fit: contain;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 
 .motion-images-group img:hover {
-  transform: scale(1.02);
+  opacity: 0.88;
+  transform: translateY(-2px);
 }
 
 .motion-scroll-container::-webkit-scrollbar {
