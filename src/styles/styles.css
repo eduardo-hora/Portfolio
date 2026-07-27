@@ -173,8 +173,6 @@ body.home-page .container {
   height: auto;
   object-fit: contain;
   object-position: top left;
-  transform: rotate(90deg);
-  transform-origin: center center;
 }
 
 .mobile-home-sidebar {
